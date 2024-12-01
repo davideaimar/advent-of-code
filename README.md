@@ -10,17 +10,18 @@ src/
 │   ├── java/
 │   │   └── com/
 │   │       └── adventofcode/
-│   │           ├── solutions/    # Individual day solutions
-│   │           ├── utils/        # Utility classes
+│   │           ├── annotations/                # Custom annotations
+│   │           ├── solutions/year<year>/       # Individual day solutions
+│   │           ├── utils/                      # Utility classes
 │   │           ├── AoCSolution.java
 │   │           └── Main.java
 │   └── resources/
-│       └── inputs/              # Puzzle inputs
+│       └── inputs/year<year>/                  # Puzzle inputs
 └── test/
     └── java/
         └── com/
             └── adventofcode/
-                └── solutions/    # Solution tests
+                └── solutions/year<year>/       # Solution tests
 ```
 
 ## Requirements
@@ -42,26 +43,28 @@ mvn clean install
 
 3. Run a specific solution:
 ```bash
-mvn exec:java -Dexec.args="<day> <part>"
+mvn exec:java -Dexec.args="<year> <day> <part>"
 ```
 
-For example, to run Day 1, Part 1:
+For example, to run 2024 Day 1, Part 1:
 ```bash
-mvn exec:java -Dexec.args="1 1"
+mvn exec:java -Dexec.args="2024 1 1"
 ```
 
 ## Adding New Solutions
 
-1. Create a new solution class in `src/main/java/com/adventofcode/solutions/`
+1. Create a new solution class in `src/main/java/com/adventofcode/solutions/year<year>/`
 2. Implement the `AoCSolution` interface
-3. Add your solution to the `getSolution` method in `Main.java`
-4. Place your input file in `src/main/resources/inputs/` as `dayX.txt`
-5. Create corresponding tests in `src/test/java/com/adventofcode/solutions/`
+3. Add the `@Solution` annotation to the solution class
+4. Place your input file in `src/main/resources/inputs/year<year>/` as `dayX.txt`
+5. Create corresponding tests in `src/test/java/com/adventofcode/solutions/year<year>/`
 
 ## Solution Template
 
 ```java
-public class DayXSolution implements AoCSolution {
+@Solution(day = 1, year = 2024)
+public class Day1Solution implements AoCSolution {
+    
     @Override
     public String solve(String input, int part) {
         return switch (part) {

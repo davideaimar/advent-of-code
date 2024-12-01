@@ -1,0 +1,56 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "com.adventofcode.Main",
+      "projectName": "aoc-solutions",
+      "args": [
+        "${input:year}",
+        "${input:day}",
+        "${input:part}",
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "year",
+      "type": "promptString",
+      "description": "Year",
+      "default": "2024"
+    },
+    {
+      "id": "day",
+      "type": "promptString",
+      "description": "Day",
+      "default": "1"
+    },
+    {
+      "id": "part",
+      "type": "pickString",
+      "description": "Part",
+      "options": [
+        {
+          "label": "Part 1",
+          "value": "1"
+        },
+        {
+          "label": "Part 2",
+          "value": "2"
+        }
+      ],
+      "default": "1"
+    }
+  ]
+}
